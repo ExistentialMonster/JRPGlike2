@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 797f993ddac9f204b9e6f7e356d18c78
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - DestCell: {instanceID: 0}
+  - CurCell: {fileID: 8290312783190549635, guid: 0cd403152de1c3643a886ea01508b11d, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
