@@ -9,14 +9,14 @@ public class Door : MonoBehaviour, IInteractableObject
 
     [SerializeField] int othersideSceneNumber;
     [SerializeField] int spawnNumber;
-    [SerializeField] GameObject curCell;
+    [SerializeField] public GameObject CurCell;
     ManagerPlayer player;
 
     void Start()
     {
         player = FindFirstObjectByType<ManagerPlayer>();
-        curCell.GetComponent<Cell>().accupated = true;
-        curCell.GetComponent<Cell>().UsedBy = gameObject;
+        CurCell.GetComponent<Cell>().accupated = true;
+        CurCell.GetComponent<Cell>().UsedBy = gameObject;
 
     }
 

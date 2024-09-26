@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene2.unity
     guid: 83f8bd3ef654dab459dd1508163402eb
+  - enabled: 1
+    path: Assets/Scenes/Fights/FightWithEnemy1.unity
+    guid: b1e8f034765d03d4e9be78d40e162bff
   m_configObjects: {}
