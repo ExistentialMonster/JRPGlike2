@@ -4,24 +4,35 @@ using UnityEngine;
 
 public class FightEnemy : MonoBehaviour
 {
-    // Start is called before the first frame update
+    bool turn = false;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        TurnMenu();
     }
 
-    public void EnemyTurn()
+
+
+    public void EnemiesTurn()
     {
-        while (Input.GetKeyDown(KeyCode.Space) != true) { 
-        }
-        Debug.Log("ahhahant");
-
-        FindObjectOfType<FightControll>().EndEnemiesTurn();
+        turn = true;
     }
+
+    void TurnMenu()
+    {
+        if (turn)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                FindObjectOfType<FightControll>().EndEnemiesTurn();
+            }
+        }
+    }
+
+
 }

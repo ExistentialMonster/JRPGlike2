@@ -24,7 +24,7 @@ public class FightControll : MonoBehaviour
 
     public void EndPlayerTurn()
     {
-        Enemies.GetComponent<FightEnemy>().EnemyTurn();
+        Enemies.GetComponent<FightEnemy>().EnemiesTurn();
     }
 
     public void EndEnemiesTurn()

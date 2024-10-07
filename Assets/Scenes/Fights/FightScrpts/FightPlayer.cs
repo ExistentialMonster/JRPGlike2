@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FightPlayer : MonoBehaviour
 {
-    // Start is called before the first frame update
+    bool turn = false;
     void Start()
     {
         
@@ -13,15 +13,26 @@ public class FightPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        TurnMenu();
     }
+
+
 
     public void PlayerTurn()
     {
-        while (Input.GetKeyDown(KeyCode.Space) != true)
-        {
-        }
-        Debug.Log("ahhahant");
-        FindObjectOfType<FightControll>().EndPlayerTurn();
+        turn = true;
     }
+
+    void TurnMenu()
+    {
+        if (turn)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                FindObjectOfType<FightControll>().EndPlayerTurn();
+            }
+        }
+    }
+
+    
 }
