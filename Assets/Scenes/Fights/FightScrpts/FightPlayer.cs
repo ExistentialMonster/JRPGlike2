@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FightPlayer : MonoBehaviour
@@ -21,6 +22,7 @@ public class FightPlayer : MonoBehaviour
     public void PlayerTurn()
     {
         turn = true;
+        FindFirstObjectByType(typeof(FightInterface)).GameObject().GetComponent<FightInterface>().PlayerTurn();
     }
 
     void TurnMenu()
