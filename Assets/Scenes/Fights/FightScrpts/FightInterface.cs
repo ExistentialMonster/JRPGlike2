@@ -1,12 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FightInterface : MonoBehaviour
 {
     [SerializeField] GameObject FightUI;
     bool playerTurn = false;
+
+    int curTabId;
+
     int chosenElemIndex;
+
+    [SerializeField] int[] spellsIds;
+
+    int enemyTargetingSpellId = 0;
+    bool isTargettingEnemy = false;
+
+    GameObject[] curEnemyTokens;
+    int enemyTargetId;
+
 
     enum UITabs{
         Attack,
@@ -16,11 +29,7 @@ public class FightInterface : MonoBehaviour
         Surrend
     }
 
-    int curTabId;
 
-    [SerializeField] int[] spellsIds;
-
-    UITabs curTab = UITabs.Attack;
     void Start()
     {
         //spellsIds = PlayerStats.spellsIds;
@@ -29,6 +38,7 @@ public class FightInterface : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isTargettingEnemy) { 
         if (Input.GetKeyDown(KeyCode.W))
         {
             curTabId = (curTabId + 1) % 2;
@@ -38,36 +48,70 @@ public class FightInterface : MonoBehaviour
             Debug.Log("hui");
             curTabId = (curTabId + 1) % 2;
         }
-        switch (curTabId) {
-            case 0:
-                {
-                    Debug.Log("Attack");
-                    break;
+            switch (curTabId)
+            {
+                case 0:
+                    {
+                        Debug.Log("Attack");
+                        break;
+                    }
+                case 1:
+                    {
+                        if (Input.GetKeyDown(KeyCode.D))
+                        {
+                            chosenElemIndex = (chosenElemIndex + 1) % spellsIds.Length;
                         }
-            case 1:
-                {
-                    if (Input.GetKeyDown(KeyCode.D)) 
-                    {
-                        chosenElemIndex = (chosenElemIndex + 1) % spellsIds.Length;
-                    }
-                    
-                    if (Input.GetKeyDown(KeyCode.A))
-                    {
-                        chosenElemIndex = (chosenElemIndex + spellsIds.Length - 1) % spellsIds.Length;
-                    }
 
-                    Debug.Log("Spell" + (chosenElemIndex).ToString());
-                    break;
-                }
-        
-        }    
+                        if (Input.GetKeyDown(KeyCode.A))
+                        {
+                            chosenElemIndex = (chosenElemIndex + spellsIds.Length - 1) % spellsIds.Length;
+                        }
+
+                        if ((Input.GetKeyDown(KeyCode.Space)))
+                        {
+                            Spells.SpellBag[spellsIds[chosenElemIndex]].UseSpell(gameObject.GetComponent<FightInterface>());
+                        }
+
+                        //Debug.Log("Spell" + (chosenElemIndex).ToString());
+                        break;
+                    }
+            }
+        }
+        else
+        {
+            curEnemyTokens = FindAnyObjectByType(typeof(TargetBoard)).GameObject().GetComponent<TargetBoard>().EnemyTokens;
+            if (Input.GetKey(KeyCode.A)) 
+            {
+                enemyTargetId = (enemyTargetId + curEnemyTokens.Length - 1) % curEnemyTokens.Length;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                enemyTargetId = (enemyTargetId + 1) % curEnemyTokens.Length;
+            }
+            if (Input.GetKey(KeyCode.Backspace))
+            {
+                EnemyTargetSpell hitTargetSpell = (EnemyTargetSpell) Spells.SpellBag[enemyTargetingSpellId];
+                hitTargetSpell.HitEnemy(curEnemyTokens[enemyTargetId].GetComponent<EnemyToken>());
+                isTargettingEnemy = false;
+            }
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                isTargettingEnemy = false;
+            }
+        }
     }
 
+
+    public void StartSpellTarget()
+    {
+        isTargettingEnemy = true;
+        enemyTargetingSpellId = spellsIds[chosenElemIndex];
+        enemyTargetId = 0;
+    }
 
     public void PlayerTurn()
     {
         FightUI.gameObject.SetActive(true);
-        curTab = UITabs.Attack;
         curTabId = 0;
         playerTurn = true;
     }

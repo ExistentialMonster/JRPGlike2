@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 
-public class Spells
+public static class Spells
 {
-    public int id;
-
+    static public Spell[] SpellBag = { new Mesmerize() }; 
 }
