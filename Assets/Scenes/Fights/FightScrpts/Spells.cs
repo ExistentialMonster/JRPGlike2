@@ -6,5 +6,5 @@ using UnityEngine;
 
 public static class Spells
 {
-    static public Spell[] SpellBag = { new Mesmerize() }; 
+    static public Spell[] SpellBag = { new Mesmerize(), new DarkBolt() }; 
 }

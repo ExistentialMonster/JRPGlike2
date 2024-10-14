@@ -6,6 +6,9 @@ using UnityEditor.Experimental;
 
 public class FightEnemy1 : EnemyToken
 {
-    //public new string Name = "HUIHUI";
-    
+    private void Awake()
+    {
+        Name = "FightEnemy1";
+    }
+
 }

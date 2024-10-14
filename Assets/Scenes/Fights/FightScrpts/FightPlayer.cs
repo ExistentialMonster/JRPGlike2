@@ -27,13 +27,7 @@ public class FightPlayer : MonoBehaviour
 
     void TurnMenu()
     {
-        if (turn)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                FindObjectOfType<FightControll>().EndPlayerTurn();
-            }
-        }
+
     }
 
     

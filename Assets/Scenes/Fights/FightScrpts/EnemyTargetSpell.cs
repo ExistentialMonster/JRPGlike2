@@ -11,7 +11,7 @@ public class EnemyTargetSpell : Spell
         signalUI.StartSpellTarget();
     }
 
-    public virtual void HitEnemy(EnemyToken enemy)
+    public virtual void HitEnemy(EnemyToken enemy, FightInterface signalUI)
     {
         
     }

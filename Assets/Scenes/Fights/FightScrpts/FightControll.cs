@@ -25,10 +25,13 @@ public class FightControll : MonoBehaviour
     public void EndPlayerTurn()
     {
         Enemies.GetComponent<FightEnemy>().EnemiesTurn();
+        Debug.Log("PlayerTurnEnded");
     }
 
     public void EndEnemiesTurn()
     {
+        Debug.Log("EnemyiesTurnEnded");
         Player.GetComponent<FightPlayer>().PlayerTurn();
+        
     }
 }

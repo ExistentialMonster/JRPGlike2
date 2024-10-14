@@ -10,10 +10,11 @@ public class Mesmerize : EnemyTargetSpell
         
     }
 
-    public override void HitEnemy(EnemyToken enemy)
+    public override void HitEnemy(EnemyToken enemy, FightInterface signalUI)
     {
-        base.HitEnemy(enemy);
+        base.HitEnemy(enemy, signalUI);
 
         enemy.GetStunned();
+        signalUI.turnVol -= 1;
     }
 }
