@@ -6,9 +6,10 @@ public class FightControll : MonoBehaviour
 {
     [SerializeField] GameObject Enemies;
     [SerializeField] GameObject Player;
+    bool st = false;
     void Start()
     {
-        
+        gameObject.GetComponent<FightPlayer>().PlayerTurn();
     }
 
     
@@ -16,22 +17,23 @@ public class FightControll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
-        {
-            Player.GetComponent<FightPlayer>().PlayerTurn();
-        }
     }
 
     public void EndPlayerTurn()
     {
-        Enemies.GetComponent<FightEnemy>().EnemiesTurn();
+        GetComponent<FightEnemy>().EnemiesTurn();
         Debug.Log("PlayerTurnEnded");
     }
 
     public void EndEnemiesTurn()
     {
         Debug.Log("EnemyiesTurnEnded");
-        Player.GetComponent<FightPlayer>().PlayerTurn();
+        GetComponent<FightPlayer>().PlayerTurn();
         
+    }
+
+    public void Defeat()
+    {
+        Debug.Log("So sad");
     }
 }

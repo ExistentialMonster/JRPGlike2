@@ -216,7 +216,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 350384570}
-  - component: {fileID: 350384571}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
@@ -242,18 +241,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &350384571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 350384569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e72c43cff81a76b438a5b69ee735f66b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &489359104
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +253,8 @@ GameObject:
   - component: {fileID: 489359106}
   - component: {fileID: 489359107}
   - component: {fileID: 489359109}
+  - component: {fileID: 489359111}
+  - component: {fileID: 489359110}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -316,6 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnVol: 0
   spellsIds: 0000000001000000
+  hp: 100
 --- !u!114 &489359109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,6 +319,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyTokens:
+  - {fileID: 1206682560}
+  - {fileID: 1091491565}
+--- !u!114 &489359110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489359104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743389373a48b784183427437bed48a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &489359111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489359104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72c43cff81a76b438a5b69ee735f66b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyies:
   - {fileID: 1206682560}
   - {fileID: 1091491565}
 --- !u!1 &1091491565
@@ -536,7 +553,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1271021198}
-  - component: {fileID: 1271021199}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -559,18 +575,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1271021199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1271021197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 743389373a48b784183427437bed48a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1595484696
 GameObject:
   m_ObjectHideFlags: 0

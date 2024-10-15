@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class TargetBoard : MonoBehaviour
 {
-    public GameObject[] EnemyTokens;
+    [SerializeField] public GameObject[] EnemyTokens;
 }

@@ -5,33 +5,34 @@ using UnityEngine;
 public class FightEnemy : MonoBehaviour
 {
     bool turn = false;
+    [SerializeField] GameObject[] enemyies;
+    TargetBoard board;
+    int curEnemy = 0;
     void Start()
     {
-
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        TurnMenu();
-    }
 
 
 
     public void EnemiesTurn()
     {
-        turn = true;
+        curEnemy = -1;
+        NextEnemy();
     }
 
-    void TurnMenu()
+    public void NextEnemy()
     {
-        if (turn)
+        Debug.Log(curEnemy);
+        
+        curEnemy++;
+        if (curEnemy >= enemyies.Length)
         {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                FindObjectOfType<FightControll>().EndEnemiesTurn();
-            }
+            gameObject.GetComponent<FightControll>().EndEnemiesTurn();
+            return;
         }
+        enemyies[curEnemy].GetComponent<EnemyToken>().EnemyGo(GetComponent<FightEnemy>());
     }
 
 

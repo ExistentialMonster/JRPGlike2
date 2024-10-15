@@ -27,4 +27,34 @@ public class EnemyToken : MonoBehaviour
         hp -= damage;
         Debug.Log(hp);
     }
+
+    public virtual void EnemyGo(FightEnemy fightEnenemySignal)
+    {
+        int attackNum;
+        attackNum = Random.Range(0, 1);
+        switch (attackNum)
+        {
+            case 0:
+                {
+                    HitPlayer();
+                    break;
+                }
+            case 1:
+                {
+                    HitMyself();
+                    break;
+                }
+        }
+        fightEnenemySignal.NextEnemy();
+    }
+
+    void HitPlayer()
+    {
+        FindAnyObjectByType(typeof(FightInterface)).GetComponent<FightInterface>().GetDamage(10);
+    }
+
+    void HitMyself()
+    {
+        GetDamage(1);
+    }
 }

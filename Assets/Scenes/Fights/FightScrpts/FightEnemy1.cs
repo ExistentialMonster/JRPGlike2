@@ -11,4 +11,16 @@ public class FightEnemy1 : EnemyToken
         Name = "FightEnemy1";
     }
 
+
+    public override void EnemyGo(FightEnemy signal)
+    {
+        base.EnemyGo(signal);
+
+
+    }
+
+    void HitPlayer()
+    {
+        FindAnyObjectByType(typeof(FightInterface));
+    }
 }

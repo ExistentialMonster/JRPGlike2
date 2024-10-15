@@ -133,4 +133,16 @@ public class FightInterface : MonoBehaviour
         playerTurn = true;
         turnVol = 3;
     }
+
+    [SerializeField] int hp = 100;
+
+    public void GetDamage(int damage)
+    {
+        hp -= damage;
+        Debug.Log(hp.ToString() + " player hp");
+        if (hp <= 0)
+        {
+            GetComponent<FightControll>().Defeat();
+        }
+    }
 }
